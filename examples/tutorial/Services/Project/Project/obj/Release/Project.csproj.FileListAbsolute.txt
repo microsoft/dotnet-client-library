@@ -1,8 +1,0 @@
-C:\svn7.4\libraries\dotNet\examples\ClientLibrary\Tutorial\Services\Project\Project\bin\Release\Project.exe
-C:\svn7.4\libraries\dotNet\examples\ClientLibrary\Tutorial\Services\Project\Project\bin\Release\Project.pdb
-C:\svn7.4\libraries\dotNet\examples\ClientLibrary\Tutorial\Services\Project\Project\bin\Release\DeployR7.4.dll
-C:\svn7.4\libraries\dotNet\examples\ClientLibrary\Tutorial\Services\Project\Project\bin\Release\Newtonsoft.Json.dll
-C:\svn7.4\libraries\dotNet\examples\ClientLibrary\Tutorial\Services\Project\Project\bin\Release\DeployR7.4.pdb
-C:\svn7.4\libraries\dotNet\examples\ClientLibrary\Tutorial\Services\Project\Project\obj\Release\ResolveAssemblyReference.cache
-C:\svn7.4\libraries\dotNet\examples\ClientLibrary\Tutorial\Services\Project\Project\obj\Release\Project.exe
-C:\svn7.4\libraries\dotNet\examples\ClientLibrary\Tutorial\Services\Project\Project\obj\Release\Project.pdb
