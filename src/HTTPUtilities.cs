@@ -32,6 +32,16 @@ namespace DeployR
         public static int HTTP_TIMEOUT = 1000000;
 
         /// <summary>
+        /// Callback function for SSL/HTTPS validation.  By default we will suppress all certificate warnings/errors
+        /// </summary>
+        /// <remarks></remarks>
+        public static bool AcceptAllCertifications(object sender, System.Security.Cryptography.X509Certificates.X509Certificate certification, System.Security.Cryptography.X509Certificates.X509Chain chain, System.Net.Security.SslPolicyErrors sslPolicyErrors)
+        {
+            return true;
+        }
+
+
+        /// <summary>
         /// Make an HTTP POST request on one of the DeployR APIs
         /// </summary>
         /// <param name="uri">Base URL of the DeployR server</param>
@@ -46,6 +56,9 @@ namespace DeployR
             Stream postStream = null;
             String responseText = "";
             String address = client.URL + uri;
+
+            //setup callback for SSL/HTTPS validation
+            ServicePointManager.ServerCertificateValidationCallback = new System.Net.Security.RemoteCertificateValidationCallback(AcceptAllCertifications);
 
             // Create the web request
             HttpWebRequest request = (HttpWebRequest)(WebRequest.Create(address));
@@ -150,6 +163,9 @@ namespace DeployR
             String responseText = "";
             String address = client.URL + uri;
 
+            //setup callback for SSL/HTTPS validation
+            ServicePointManager.ServerCertificateValidationCallback = new System.Net.Security.RemoteCertificateValidationCallback(AcceptAllCertifications);
+
             // Create the web request
             String url = address + "?" + data;
             HttpWebRequest request = (HttpWebRequest)(WebRequest.Create(url));
@@ -233,6 +249,9 @@ namespace DeployR
             String responseText = "";
             String address = client.URL + uri;
 
+            //setup callback for SSL/HTTPS validation
+            ServicePointManager.ServerCertificateValidationCallback = new System.Net.Security.RemoteCertificateValidationCallback(AcceptAllCertifications);
+
             // Create the web request
             String url = address + "?" + data;
             HttpWebRequest request = (HttpWebRequest)(WebRequest.Create(url));
@@ -310,6 +329,9 @@ namespace DeployR
             byte[] returnBytes = null;
             String address = client.URL + uri;
 
+            //setup callback for SSL/HTTPS validation
+            ServicePointManager.ServerCertificateValidationCallback = new System.Net.Security.RemoteCertificateValidationCallback(AcceptAllCertifications);
+
             // Create the web request
             String url = address + "?" + data;
             HttpWebRequest request = (HttpWebRequest)(WebRequest.Create(url));
@@ -380,6 +402,9 @@ namespace DeployR
             Stream postStream = null;
             String responseText = "";
             String address = client.URL + uri;
+
+            //setup callback for SSL/HTTPS validation
+            ServicePointManager.ServerCertificateValidationCallback = new System.Net.Security.RemoteCertificateValidationCallback(AcceptAllCertifications);
 
             // Create the web request
             HttpWebRequest request = (HttpWebRequest)(WebRequest.Create(address));
