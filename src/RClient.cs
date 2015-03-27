@@ -31,6 +31,7 @@ namespace DeployR
         private String m_url = "";
         private int m_concurrent = 10;
         private Cookie m_cookie;
+        private Boolean m_allowSelfSignedSSLCert = false;
 
         /// <summary>
         /// Default constructor.
@@ -79,6 +80,23 @@ namespace DeployR
             set
             {
                 m_url = value;
+            }
+        }
+        /// <summary>
+        /// Get/Set the flag that allows Self-Signed SSL Certificates to be use on HTTPS Web Requests to the DeployR API
+        /// </summary>
+        /// <value></value>
+        /// <returns>Self-Signed SSL Certificate flag</returns>
+        /// <remarks></remarks>
+        public Boolean allowSelfSignedSSLCert
+        {
+            get
+            {
+                return m_allowSelfSignedSSLCert;
+            }
+            set
+            {
+                m_allowSelfSignedSSLCert = value;
             }
         }
         /// <summary>

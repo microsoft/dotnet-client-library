@@ -58,7 +58,10 @@ namespace DeployR
             String address = client.URL + uri;
 
             //setup callback for SSL/HTTPS validation
-            ServicePointManager.ServerCertificateValidationCallback = new System.Net.Security.RemoteCertificateValidationCallback(AcceptAllCertifications);
+            if (client.allowSelfSignedSSLCert == true)
+            {
+                ServicePointManager.ServerCertificateValidationCallback = new System.Net.Security.RemoteCertificateValidationCallback(AcceptAllCertifications);
+            }
 
             // Create the web request
             HttpWebRequest request = (HttpWebRequest)(WebRequest.Create(address));
@@ -164,7 +167,11 @@ namespace DeployR
             String address = client.URL + uri;
 
             //setup callback for SSL/HTTPS validation
-            ServicePointManager.ServerCertificateValidationCallback = new System.Net.Security.RemoteCertificateValidationCallback(AcceptAllCertifications);
+            //setup callback for SSL/HTTPS validation
+            if (client.allowSelfSignedSSLCert == true)
+            {
+                ServicePointManager.ServerCertificateValidationCallback = new System.Net.Security.RemoteCertificateValidationCallback(AcceptAllCertifications);
+            }
 
             // Create the web request
             String url = address + "?" + data;
@@ -250,7 +257,10 @@ namespace DeployR
             String address = client.URL + uri;
 
             //setup callback for SSL/HTTPS validation
-            ServicePointManager.ServerCertificateValidationCallback = new System.Net.Security.RemoteCertificateValidationCallback(AcceptAllCertifications);
+            if (client.allowSelfSignedSSLCert == true)
+            {
+                ServicePointManager.ServerCertificateValidationCallback = new System.Net.Security.RemoteCertificateValidationCallback(AcceptAllCertifications);
+            }
 
             // Create the web request
             String url = address + "?" + data;
@@ -330,7 +340,10 @@ namespace DeployR
             String address = client.URL + uri;
 
             //setup callback for SSL/HTTPS validation
-            ServicePointManager.ServerCertificateValidationCallback = new System.Net.Security.RemoteCertificateValidationCallback(AcceptAllCertifications);
+            if (client.allowSelfSignedSSLCert == true)
+            {
+                ServicePointManager.ServerCertificateValidationCallback = new System.Net.Security.RemoteCertificateValidationCallback(AcceptAllCertifications);
+            }
 
             // Create the web request
             String url = address + "?" + data;
@@ -404,7 +417,10 @@ namespace DeployR
             String address = client.URL + uri;
 
             //setup callback for SSL/HTTPS validation
-            ServicePointManager.ServerCertificateValidationCallback = new System.Net.Security.RemoteCertificateValidationCallback(AcceptAllCertifications);
+            if (client.allowSelfSignedSSLCert == true)
+            {
+                ServicePointManager.ServerCertificateValidationCallback = new System.Net.Security.RemoteCertificateValidationCallback(AcceptAllCertifications);
+            }
 
             // Create the web request
             HttpWebRequest request = (HttpWebRequest)(WebRequest.Create(address));
