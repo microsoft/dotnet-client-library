@@ -80,7 +80,7 @@ namespace DeployR
                 if (!(options.preloadDirectory == null))
                 {
                     data.Append("&preloadfilename=" + HttpUtility.UrlEncode(options.preloadDirectory.filename));
-                    data.Append("&preloaddirectory=" + HttpUtility.UrlEncode(options.preloadDirectory.directory));
+                    data.Append("&preloadfiledirectory=" + HttpUtility.UrlEncode(options.preloadDirectory.directory));
                     data.Append("&preloadfileauthor=" + HttpUtility.UrlEncode(options.preloadDirectory.author));
                     data.Append("&preloadfileversion=" + HttpUtility.UrlEncode(options.preloadDirectory.version));
                 }
@@ -142,7 +142,7 @@ namespace DeployR
                 if (!(options.preloadDirectory == null))
                 {
                     data.Append("&preloadfilename=" + HttpUtility.UrlEncode(options.preloadDirectory.filename));
-                    data.Append("&preloaddirectory=" + HttpUtility.UrlEncode(options.preloadDirectory.directory));
+                    data.Append("&preloadfiledirectory=" + HttpUtility.UrlEncode(options.preloadDirectory.directory));
                     data.Append("&preloadfileauthor=" + HttpUtility.UrlEncode(options.preloadDirectory.author));
                     data.Append("&preloadfileversion=" + HttpUtility.UrlEncode(options.preloadDirectory.version));
                 }
