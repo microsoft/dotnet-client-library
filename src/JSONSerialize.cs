@@ -687,9 +687,12 @@ namespace DeployR
 
                     //value
                     value = new JProperty("value", parentarray);
-                    foreach (var v in (List<Object>)r.Value)
+                    var rDataValue = (List<List<double?>>) r.Value;
+                    foreach (var v in rDataValue)
                     {
-                        childarray = new JArray(((List<Object>)v).ToArray());
+                        var objects = new List<object>();
+                        v.ForEach(x => objects.Add((object)x));
+                        childarray = new JArray(objects.ToArray());
                         parentarray.Add(childarray);
                     }
                 }
