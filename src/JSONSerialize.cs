@@ -687,32 +687,41 @@ namespace DeployR
 
                     //value
                     value = new JProperty("value", parentarray);
-                    var rDataValue;
                     
                     if (r.RClass == Constants.RCLASS_NUMERIC)
                     {
-                        rDataValue = (List<List<Double?>>) r.Value;
+                        var rDataValue = (List<List<Double?>>) r.Value;
+                        foreach (var v in rDataValue)
+                        {
+                            var objects = new List<Object>();
+                            v.ForEach(x => objects.Add((Object)x));
+                            childarray = new JArray(objects.ToArray());
+                            parentarray.Add(childarray);
+                        }
                     }
                     else if (r.RClass == Constants.RCLASS_CHARACTER)
                     {
-                        rDataValue = (List<List<String>>)r.Value;
+                        var rDataValue = (List<List<String>>)r.Value;
+                        foreach (var v in rDataValue)
+                        {
+                            var objects = new List<Object>();
+                            v.ForEach(x => objects.Add((Object)x));
+                            childarray = new JArray(objects.ToArray());
+                            parentarray.Add(childarray);
+                        }
                     }
                     else if (r.RClass == Constants.RCLASS_BOOLEAN)
                     {
-                        rDataValue = (List<List<Boolean?>>)r.Value;
-                    }
-                    else
-                    {
-                        rDataValue = (List<List<Double?>>)r.Value;
+                        var rDataValue = (List<List<Boolean?>>)r.Value;
+                        foreach (var v in rDataValue)
+                        {
+                            var objects = new List<Object>();
+                            v.ForEach(x => objects.Add((Object)x));
+                            childarray = new JArray(objects.ToArray());
+                            parentarray.Add(childarray);
+                        }
                     }
  
-                    foreach (var v in rDataValue)
-                    {
-                        var objects = new List<Object>();
-                        v.ForEach(x => objects.Add((Object)x));
-                        childarray = new JArray(objects.ToArray());
-                        parentarray.Add(childarray);
-                    }
                 }
                 else if ((r.Type == Constants.TYPE_DATAFRAME) || (r.Type == Constants.TYPE_LIST))
                 {
