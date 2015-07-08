@@ -414,6 +414,7 @@ namespace DeployR
             data.Append("&ispublic=false");
             data.Append("&isordered=false");
             data.Append("&filename=" + HttpUtility.UrlEncode(m_fileDetails.filename));
+            data.Append("&directory=" + HttpUtility.UrlEncode(m_fileDetails.directory));
 
             //call the server
             JSONResponse jresponse = HTTPUtilities.callRESTGet(uri, data.ToString(), ref m_client);

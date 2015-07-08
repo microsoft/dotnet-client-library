@@ -687,9 +687,30 @@ namespace DeployR
 
                     //value
                     value = new JProperty("value", parentarray);
-                    foreach (var v in (List<Object>)r.Value)
+                    var rDataValue;
+                    
+                    if (r.RClass == Constants.RCLASS_NUMERIC)
                     {
-                        childarray = new JArray(((List<Object>)v).ToArray());
+                        rDataValue = (List<List<Double?>>) r.Value;
+                    }
+                    else if (r.RClass == Constants.RCLASS_CHARACTER)
+                    {
+                        rDataValue = (List<List<String>>)r.Value;
+                    }
+                    else if (r.RClass == Constants.RCLASS_BOOLEAN)
+                    {
+                        rDataValue = (List<List<Boolean?>>)r.Value;
+                    }
+                    else
+                    {
+                        rDataValue = (List<List<Double?>>)r.Value;
+                    }
+ 
+                    foreach (var v in rDataValue)
+                    {
+                        var objects = new List<Object>();
+                        v.ForEach(x => objects.Add((Object)x));
+                        childarray = new JArray(objects.ToArray());
                         parentarray.Add(childarray);
                     }
                 }

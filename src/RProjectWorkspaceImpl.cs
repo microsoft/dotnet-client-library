@@ -120,6 +120,7 @@ namespace DeployR
             if (!(file == null))
             {
                 data.Append("&filename=" + HttpUtility.UrlEncode(file.about().filename));
+                data.Append("&directory=" + HttpUtility.UrlEncode(file.about().directory));
                 data.Append("&author=" + HttpUtility.UrlEncode(file.about().author));
                 data.Append("&version=" + HttpUtility.UrlEncode(file.about().version));
             }
