@@ -688,7 +688,7 @@ namespace DeployR
                     //value
                     value = new JProperty("value", parentarray);
                     
-                    if (r.RClass == Constants.RCLASS_NUMERIC)
+                    if (r.Value.GetType() == typeof(List<List<Double?>>))
                     {
                         var rDataValue = (List<List<Double?>>) r.Value;
                         foreach (var v in rDataValue)
@@ -699,7 +699,7 @@ namespace DeployR
                             parentarray.Add(childarray);
                         }
                     }
-                    else if (r.RClass == Constants.RCLASS_CHARACTER)
+                    else if (r.Value.GetType() == typeof(List<List<String>>))
                     {
                         var rDataValue = (List<List<String>>)r.Value;
                         foreach (var v in rDataValue)
@@ -710,7 +710,7 @@ namespace DeployR
                             parentarray.Add(childarray);
                         }
                     }
-                    else if (r.RClass == Constants.RCLASS_BOOLEAN)
+                    else if (r.Value.GetType() == typeof(List<List<Boolean?>>))
                     {
                         var rDataValue = (List<List<Boolean?>>)r.Value;
                         foreach (var v in rDataValue)
