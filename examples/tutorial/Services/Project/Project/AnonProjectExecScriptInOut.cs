@@ -12,17 +12,24 @@
  */
 
 using System;
+using System.Text;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using DeployR;
 
 namespace Project
 {
     class AnonProjectExecScriptInOut
     {
+        public static RScriptExecution exec;
+        public static String console;
+        public static List<RProjectResult> plots;
+        public static List<RProjectFile> files;
+        public static List<RData> objects;
+    
         static public void Execute()
         {
+            
             Console.WriteLine("AnonProjectExecuteScript - start");
 
             // 
@@ -40,15 +47,16 @@ namespace Project
             // The R object that is an input to the script is 'input_randomNum'
             // The R object that we want to retrieve after script execution is 'x'
             //
+
             AnonymousProjectExecutionOptions options = new AnonymousProjectExecutionOptions();
             options.rinputs.Add(RDataFactory.createNumeric("input_randomNum", 100));
             options.routputs.Add("x");
 
-            RScriptExecution exec = rClient.executeScript("DeployR - Hello World",
-                                                            "root",
-                                                            "testuser",
-                                                            "",
-                                                            options);
+            exec = rClient.executeScript("DeployR - Hello World",
+                                            "root",
+                                            "testuser",
+                                            "",
+                                            options);
 
             Console.WriteLine("AnonProjectExecuteScript: public repository-managed " +
                     "script execution completed, exec=" + exec);
@@ -56,10 +64,10 @@ namespace Project
             //
             // 3. Retrieve script execution results.
             //
-            String console = exec.about().console;
-            List<RProjectResult> plots = exec.about().results;
-            List<RProjectFile> files = exec.about().artifacts;
-            List<RData> objects = exec.about().workspaceObjects;
+            console = exec.about().console;
+            plots = exec.about().results;
+            files = exec.about().artifacts;
+            objects = exec.about().workspaceObjects;
 
             RNumericVector xVec = (RNumericVector)objects[0];
 

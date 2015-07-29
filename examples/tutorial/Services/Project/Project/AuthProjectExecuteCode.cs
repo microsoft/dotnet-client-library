@@ -21,6 +21,12 @@ namespace Project
 {
     public class AuthProjectExecuteCode
     {
+        public static RProjectExecution exec;
+        public static String console;
+        public static List<RProjectResult> plots;
+        public static List<RProjectFile> files;
+        public static List<RData> objects;
+
         static public void Execute()
         {
             Console.WriteLine("AuthProjectExecuteCode - start");
@@ -61,17 +67,17 @@ namespace Project
             // exec = rProject.executeCode(rCode, options);
             //
             String rCode = "demo(graphics)";
-            RProjectExecution exec = rProject.executeCode(rCode);
+            exec = rProject.executeCode(rCode);
 
             Console.WriteLine("AuthProjectExecuteCode: R code execution completed, exec=" + exec);
 
             //
             // 5. Retrieve code execution results.
             //
-            String console = exec.about().console;
-            List<RProjectResult> plots = exec.about().results;
-            List<RProjectFile> files = exec.about().artifacts;
-            List<RData> objects = exec.about().workspaceObjects;
+            console = exec.about().console;
+            plots = exec.about().results;
+            files = exec.about().artifacts;
+            objects = exec.about().workspaceObjects;
 
             //
             //  6. Cleanup

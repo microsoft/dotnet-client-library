@@ -21,6 +21,9 @@ namespace Project
 {
     public class AuthProjectWorkspace
     {
+        public static RProjectExecution exec;
+        public static List<RData> objs;
+
         static public void Execute()
         {
 
@@ -56,7 +59,7 @@ namespace Project
             // in the R session's workspace.
             //
             String rCode = "x <- T";
-            RProjectExecution exec = rProject.executeCode(rCode);
+            exec = rProject.executeCode(rCode);
 
             //
             // 5. Retrieve the object "x" from the R session's workspace.
@@ -112,7 +115,7 @@ namespace Project
             // objs = rProject.listObjects(options);
             //
             ///
-            List<RData> objs = rProject.listObjects();            
+           objs = rProject.listObjects();            
             
             //
             // 9. Cleanup

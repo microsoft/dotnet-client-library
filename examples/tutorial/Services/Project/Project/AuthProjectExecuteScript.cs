@@ -21,6 +21,12 @@ namespace Project
 {
     public class AuthProjectExecuteScript
     {
+        public static RProjectExecution exec;
+        public static String console;
+        public static List<RProjectResult> plots;
+        public static List<RProjectFile> files;
+        public static List<RData> objects;
+
         static public void Execute()
         {
             Console.WriteLine("AuthProjectExecuteScript - start");
@@ -60,21 +66,21 @@ namespace Project
             //
             // exec = rProject.executeScript(filename, directory, author, version, options);
             //
-            RProjectExecution exec = rProject.executeScript("Histogram of Auto Sales",
-                                                            "root",
-                                                            "testuser", 
-                                                            "", 
-                                                            null);
+            exec = rProject.executeScript("Histogram of Auto Sales",
+                                            "root",
+                                            "testuser", 
+                                            "", 
+                                            null);
 
             Console.WriteLine("AuthProjectExecuteScript: repository-managed script execution completed, exec=" + exec);
 
             //
             // 5. Retrieve code execution results.
             //
-            String console = exec.about().console;
-            List<RProjectResult> plots = exec.about().results;
-            List<RProjectFile> files = exec.about().artifacts;
-            List<RData> objects = exec.about().workspaceObjects;
+            console = exec.about().console;
+            plots = exec.about().results;
+            files = exec.about().artifacts;
+            objects = exec.about().workspaceObjects;
 
             //
             //  6. Cleanup

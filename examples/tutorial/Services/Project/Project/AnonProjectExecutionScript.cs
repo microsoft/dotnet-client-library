@@ -21,6 +21,12 @@ namespace Project
 {
     class AnonProjectExecutionScript
     {
+        public static RScriptExecution exec;
+        public static String console;
+        public static List<RProjectResult> plots;
+        public static List<RProjectFile> files;
+        public static List<RData> objects;
+
         static public void Execute()
         {
             Console.WriteLine("AnonProjectExecuteScript - start");
@@ -43,11 +49,11 @@ namespace Project
             // RScriptExecution exec =
             // rClient.executeScript(filename, directory, author, version, options);
             //
-            RScriptExecution exec = rClient.executeScript("Histogram of Auto Sales",
-                                                            "root", 
-                                                            "testuser", 
-                                                            "",
-                                                            null);
+            exec = rClient.executeScript("Histogram of Auto Sales",
+                                            "root", 
+                                            "testuser", 
+                                            "",
+                                            null);
 
             Console.WriteLine("AnonProjectExecuteScript: public repository-managed " +
                     "script execution completed, exec=" + exec);
@@ -55,10 +61,10 @@ namespace Project
             //
             // 3. Retrieve script execution results.
             //
-            String console = exec.about().console;
-            List<RProjectResult> plots = exec.about().results;
-            List<RProjectFile> files = exec.about().artifacts;
-            List<RData> objects = exec.about().workspaceObjects;
+            console = exec.about().console;
+            plots = exec.about().results;
+            files = exec.about().artifacts;
+            objects = exec.about().workspaceObjects;
 
             Console.WriteLine("AnonProjectExecuteScript - end");
 
