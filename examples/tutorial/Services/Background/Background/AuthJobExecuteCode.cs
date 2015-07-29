@@ -60,12 +60,12 @@ namespace Background
             {
                 while (true)
                 {
-                    RJob.Status status = rJob.query().status;
+                    String sMsg = rJob.query().status.Value;
 
-                    if (status == RJob.Status.COMPLETED |
-                        status == RJob.Status.FAILED |
-                        status == RJob.Status.CANCELLED |
-                        status == RJob.Status.ABORTED)
+                    if (sMsg == RJob.Status.COMPLETED.Value |
+                        sMsg == RJob.Status.FAILED.Value |
+                        sMsg == RJob.Status.CANCELLED.Value |
+                        sMsg == RJob.Status.ABORTED.Value)
                     {
                         break;
                     }

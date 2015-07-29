@@ -38,6 +38,13 @@ namespace DeployR
             private String m_value { get; set; }
 
             /// <summary>
+            /// Value defining scheduled status of a job
+            /// </summary>
+            /// <returns>Value</returns>
+            /// <remarks></remarks>
+            public String Value { get { return m_value; } }
+
+            /// <summary>
             /// Enum value defining scheduled status of a job
             /// </summary>
             /// <returns>Enum value</returns>
@@ -95,37 +102,41 @@ namespace DeployR
             public static Status fromString(String value)
             {
                 String s = value.ToLower();
-                if (s == SCHEDULED.ToString().ToLower())
+                if (s == SCHEDULED.Value.ToLower())
                 {
                     return SCHEDULED;
                 }
-                else if (s == QUEUED.ToString().ToLower())
+                else if (s == QUEUED.Value.ToLower())
                 {
                     return QUEUED;
                 }
-                else if (s == RUNNING.ToString().ToLower())
+                else if (s == RUNNING.Value.ToLower())
                 {
                     return RUNNING;
                 }
-                else if (s == ABORTED.ToString().ToLower())
+                else if (s == ABORTED.Value.ToLower())
                 {
                     return ABORTED;
                 }
-                else if (s == CANCELLED.ToString().ToLower())
+                else if (s == CANCELLED.Value.ToLower())
                 {
                     return CANCELLED;
                 }
-                else if (s == INTERRUPTED.ToString().ToLower())
+                else if (s == INTERRUPTED.Value.ToLower())
                 {
                     return INTERRUPTED;
                 }
-                else if (s == FAILED.ToString().ToLower())
+                else if (s == FAILED.Value.ToLower())
                 {
                     return FAILED;
                 }
-                else
+                else if (s == COMPLETED.Value.ToLower())
                 {
                     return COMPLETED;
+                }
+                else
+                {
+                    return QUEUED;
                 }
             }
         }

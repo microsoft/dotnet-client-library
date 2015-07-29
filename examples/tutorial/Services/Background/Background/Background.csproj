@@ -31,9 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DeployR7.4, Version=7.4.0.0, Culture=neutral, PublicKeyToken=33a36bb775756baf, processorArchitecture=MSIL">
+    <Reference Include="DeployR7.4, Version=7.4.4.0, Culture=neutral, PublicKeyToken=33a36bb775756baf, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\deployR\bin\Release\DeployR7.4.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\dotnet-client-library\src\bin\Release\DeployR7.4.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
