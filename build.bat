@@ -4,12 +4,13 @@
 set ROOT_DIR=%CD%
 
 ::specify the version of the library
-set VERSION=7.4.0
+set VERSION=8.0.0
 
 ::set the configuration (Release or Debug)
 set CONFIG=Release
 
-
+::set the platform (x86)
+set PLATFORM=x86
 
 ::
 ::
@@ -23,8 +24,8 @@ set CLIENT_LIB_REF_PATH=%ROOT_DIR%\lib
 ::define output dir
 set CLIENT_LIB_OUTDIR=%ROOT_DIR%\release\
 
-::define which version of msbuild we are going to use (Client lib uses .NET 3.5)
-set DOTNET_3.5_BUILD_EXE=C:\Windows\Microsoft.NET\Framework\v3.5\msbuild 
+::define which version of msbuild we are going to use (Client lib uses .NET 4.5.1)
+set DOTNET_4.5_BUILD_EXE=C:\Windows\Microsoft.NET\Framework64\v4.0.30319\msbuild 
 
 ::specify the location of the source solution file (i.e. deployR.sln)
 set CLIENT_LIB_SRC_DIR=%ROOT_DIR%\src
@@ -44,7 +45,7 @@ if exist %CLIENT_LIB_OUTDIR% rmdir %CLIENT_LIB_OUTDIR% /s /q
 
 ::build the library
 cd %CLIENT_LIB_SRC_DIR%
-%DOTNET_3.5_BUILD_EXE% /p:Configuration=%CONFIG%;ReferencePath=%CLIENT_LIB_REF_PATH%;OutDir=%CLIENT_LIB_OUTDIR% /t:Clean;Rebuild
+%DOTNET_4.5_BUILD_EXE% /p:Configuration=%CONFIG%;Platform=%PLATFORM%;ReferencePath=%CLIENT_LIB_REF_PATH%;OutDir=%CLIENT_LIB_OUTDIR% /t:Clean;Rebuild
 ::create the zip file
 if exist %CLIENT_LIB_OUTDIR% (
 	cd %CLIENT_LIB_OUTDIR%
@@ -61,12 +62,10 @@ if exist %CLIENT_LIB_OUTDIR% (
 ::Client lib Sandcastle Help File Builder project file
 set CLIENT_LIB_HELP_PROJECT=%ROOT_DIR%\help\deployR.shfbproj
 
-::define which version of msbuild we are going to use (Sandcastle Help File Builder requires .NET 4.0 or >)
-set DOTNET_4.0_BUILD_EXE=C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild 
-
 :build client lib help file
 cd %CLIENT_LIB_SRC_DIR%
-%DOTNET_4.0_BUILD_EXE% /p:Configuration=%CONFIG%;ReferencePath=%CLIENT_LIB_SRC_DIR%;OutDir=%CLIENT_LIB_OUTDIR%;OutputPath=%CLIENT_LIB_OUTDIR% %CLIENT_LIB_HELP_PROJECT%
+set PLATFORM=
+%DOTNET_4.5_BUILD_EXE% /p:Configuration=%CONFIG%;ReferencePath=%CLIENT_LIB_SRC_DIR%;OutDir=%CLIENT_LIB_OUTDIR%;OutputPath=%CLIENT_LIB_OUTDIR% %CLIENT_LIB_HELP_PROJECT%
 
 ::reset the directory
 cd %ROOT_DIR%
