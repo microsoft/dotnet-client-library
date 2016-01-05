@@ -35,7 +35,7 @@ within this repository.
 Building the .NET Client Library
 --------------------------------
 
-The DeployR .NET Client Library is managed with Visual Studio 2008, using .NET Framework 3.5 SP1.
+The DeployR .NET Client Library is managed with Visual Studio 2013, using .NET Framework 4.5.1.
 The `build.bat` file at the root of this repository can be used to build the library
 
 A successful build will result in the creation of `DeployR-DotNet-Client-<version>.zip` file containing the 
