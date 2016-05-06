@@ -26,12 +26,12 @@
       <Filter entryType="Namespace" fullName="WindowsApplication1" isExposed="False" />
     </ApiFilter>
     <HelpTitle>DeployR</HelpTitle>
-    <ProjectSummary>DeployR Client Library 8.0</ProjectSummary>
+    <ProjectSummary>DeployR Client Library 8.0.5</ProjectSummary>
     <NamespaceSummaries>
-      <NamespaceSummaryItem name="DeployR" isDocumented="True">DeployR Client Library 8.0</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="DeployR" isDocumented="True">DeployR Client Library 8.0.5</NamespaceSummaryItem>
 <NamespaceSummaryItem name="(global)" isDocumented="True" /></NamespaceSummaries>
-    <HelpFileVersion>8.0.0.0</HelpFileVersion>
-    <CopyrightText>Copyright %28c%29 2010 - 2015, Microsoft Corporation, All rights reserved.</CopyrightText>
+    <HelpFileVersion>8.0.5.0</HelpFileVersion>
+    <CopyrightText>Copyright %28c%29 2010 - 2016, Microsoft Corporation, All rights reserved.</CopyrightText>
     <HelpFileFormat>HtmlHelp1</HelpFileFormat>
     <BuildAssemblerVerbosity>OnlyWarningsAndErrors</BuildAssemblerVerbosity>
     <IndentHtml>False</IndentHtml>
