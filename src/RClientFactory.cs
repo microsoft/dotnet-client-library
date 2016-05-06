@@ -56,6 +56,8 @@ namespace DeployR
             RClient returnValue = new RClient(deployRURL, concurrentCallLimit);
             System.Net.ServicePointManager.DefaultConnectionLimit = concurrentCallLimit + 10;
             System.Net.ServicePointManager.Expect100Continue = false;
+            System.Net.ServicePointManager.SetTcpKeepAlive(true, 10000, 10000);
+
             return returnValue;
         }
 

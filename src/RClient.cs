@@ -32,6 +32,7 @@ namespace DeployR
         private int m_concurrent = 10;
         private Cookie m_cookie;
         private Boolean m_allowSelfSignedSSLCert = false;
+        private String m_XSRFHeader = "";
 
         /// <summary>
         /// Default constructor.
@@ -63,6 +64,23 @@ namespace DeployR
             set
             {
                 m_cookie = value;
+            }
+        }
+        /// <summary>
+        /// Gets the X-XSRF-TOKEN header
+        /// </summary>
+        /// <value></value>
+        /// <returns>String containing the X-XSRF-TOKEN header</returns>
+        /// <remarks></remarks>
+        public String XSRFHeader
+        {
+            get
+            {
+                return m_XSRFHeader;
+            }
+            set
+            {
+                m_XSRFHeader = value;
             }
         }
         /// <summary>
