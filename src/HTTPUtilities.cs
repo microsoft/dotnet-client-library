@@ -74,6 +74,12 @@ namespace DeployR
                 cookieJar.Add(client.Cookie);
             }
 
+            // Set the X-XSRF-TOKEN header
+            if (!(client.XSRFHeader == null))
+            {
+                request.Headers.Add("X-XSRF-TOKEN", client.XSRFHeader);
+            }
+
             // Set type to POST
             request.Method = "POST";
             request.ContentType = "application/x-www-form-urlencoded";
@@ -116,6 +122,12 @@ namespace DeployR
                 if (response.Cookies.Count > 0)
                 {
                     client.Cookie = response.Cookies[0];
+                }
+
+                // Save the X-XSRF-TOKEN header (if there is one)
+                if (response.Headers.Count > 0)
+                {
+                    client.XSRFHeader = response.Headers.Get("X-XSRF-TOKEN");
                 }
 
                 // Get the response stream into a reader
@@ -433,6 +445,12 @@ namespace DeployR
                 cookieJar.Add(client.Cookie);
             }
 
+            // Set the X-XSRF-TOKEN header
+            if (!(client.XSRFHeader == null))
+            {
+                request.Headers.Add("X-XSRF-TOKEN", client.XSRFHeader);
+            }
+
             // Set type to POST
             request.Method = "POST";
             //this is a multipart request, so we need a boundary and need to setup the proper ContentType
@@ -505,6 +523,12 @@ namespace DeployR
                 if (response.Cookies.Count > 0)
                 {
                     client.Cookie = response.Cookies[0];
+                }
+
+                // Save the X-XSRF-TOKEN header (if there is one)
+                if (response.Headers.Count > 0)
+                {
+                    client.XSRFHeader = response.Headers.Get("X-XSRF-TOKEN");
                 }
 
                 // Get the response stream into a reader
